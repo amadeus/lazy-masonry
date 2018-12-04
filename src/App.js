@@ -1,25 +1,34 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from 'react';
+import List from './ListMasonryLayout';
+import Cats from './Cats';
+import styles from './App.module.css';
 
 class App extends Component {
+  renderItem(item, coords) {
+    return <img alt="" src={item.src} className={styles.image} />;
+  }
+
+  getHeight({width, height}, columnWidth) {
+    const ratio = height / width;
+    return columnWidth * ratio;
+  }
+
+  getId(item) {
+    return item.src;
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div className={styles.container}>
+        <List
+          className={styles.scroller}
+          gutterSize={10}
+          columns={4}
+          data={Cats}
+          getItemId={this.getId}
+          getItemHeight={this.getHeight}
+          renderItem={this.renderItem}
+        />
       </div>
     );
   }
