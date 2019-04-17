@@ -8,6 +8,7 @@
   flex: 1 1 auto;
   overflow-y: auto;
   overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
 
   scrollbar-width: thin;
   scrollbar-color: rgba(0, 0, 0, 0.2) white;
