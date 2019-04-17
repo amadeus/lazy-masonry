@@ -59,7 +59,6 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js",
     "now-build": "react-scripts build && mv build dist"
   },
   "eslintConfig": {
