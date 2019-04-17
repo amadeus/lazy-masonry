@@ -7,4 +7,22 @@
   position: relative;
   flex: 1 1 auto;
   overflow-y: auto;
+  overflow-x: hidden;
+
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.2) white;
+}
+
+.scroller::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scroller::-webkit-scrollbar-button {
+  display: none;
+}
+
+.scroller::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+  border: 1px solid white;
 }

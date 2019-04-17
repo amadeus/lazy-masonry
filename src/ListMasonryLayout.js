@@ -45,7 +45,7 @@ class ListComputer<Item> {
     const {columns, getItemId, getItemHeight, gutterSize} = this;
     const coordsMap = {};
     const columnHeights = new Array(columns).fill(0);
-    const columnWidth = (scrollerWidth - gutterSize * (columns - 1)) / columns;
+    const columnWidth = (scrollerWidth - gutterSize * (columns + 1)) / columns;
     const visibleItems = [];
 
     data.forEach(item => {
@@ -60,7 +60,7 @@ class ListComputer<Item> {
       const top = columnHeight + gutterSize;
       const coords = {
         position: 'absolute',
-        left: columnWidth * columnIndex + gutterSize * columnIndex,
+        left: columnWidth * columnIndex + gutterSize * columnIndex + gutterSize,
         width: columnWidth,
         top,
         height,
