@@ -138,11 +138,20 @@ class ListMasonry extends React.Component {
   }
 
   componentDidMount() {
+    this.fullCompute();
+    window.addEventListener('resize', this.fullCompute);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.fullCompute);
+  }
+
+  fullCompute = () => {
     const {data} = this.props;
     const {scrollTop, height, width} = this.getScrollerData();
     const items = this.computer.computeFullCoords(data, scrollTop, height, width);
     this.setState({scrollTop, height, width, items});
-  }
+  };
 
   handleScroll = () => {
     const {data} = this.props;
